@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -8,7 +9,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.collections.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="298.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx_servomotor.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="344.0" prefWidth="502.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx_servomotor.FXMLDocumentController">
    
     <children>
     
@@ -16,41 +17,106 @@
       <Label fx:id="ComPortLable" layoutX="14.0" layoutY="49.0" minHeight="16" minWidth="69" />
       <Button fx:id="ConnectToPort" layoutX="180.0" layoutY="14.0" mnemonicParsing="false" onAction="#ConnectToPort" text="Connect" />
       <Button fx:id="DisconnectFromPort" layoutX="249.0" layoutY="14.0" mnemonicParsing="false" onAction="#DisconnectFromPort" text="Disconnect" />
-      <Line endX="500.0" layoutY="76.0" strokeWidth="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0" />
       
-        <RadioButton fx:id="rb01" layoutX="22.0" layoutY="102.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="01">
+       
+      <TabPane layoutY="72.0" prefHeight="274.0" prefWidth="507.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="tab1" text="S-curve operation">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <RadioButton fx:id="rb01" layoutX="21.0" layoutY="27.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="01">
          <toggleGroup>
             <ToggleGroup fx:id="myToggleGroup" />
          </toggleGroup></RadioButton>
-        <RadioButton fx:id="rb02" layoutX="22.0" layoutY="122.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="02" toggleGroup="$myToggleGroup" />
-        <RadioButton fx:id="rb03" layoutX="22.0" layoutY="142.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="03" toggleGroup="$myToggleGroup" />
-        <RadioButton fx:id="rb04" layoutX="22.0" layoutY="162.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="04" toggleGroup="$myToggleGroup" />
-        <RadioButton fx:id="rb05" layoutX="22.0" layoutY="182.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="05" toggleGroup="$myToggleGroup" />
-        <RadioButton fx:id="rb06" layoutX="22.0" layoutY="202.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="06" toggleGroup="$myToggleGroup" />
-        <RadioButton fx:id="rb07" layoutX="22.0" layoutY="222.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="07" toggleGroup="$myToggleGroup" />
-        <RadioButton fx:id="rb08" layoutX="22.0" layoutY="242.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="08" toggleGroup="$myToggleGroup" />
-        <RadioButton fx:id="rb09" layoutX="71.0" layoutY="102.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="09" toggleGroup="$myToggleGroup" />
-        <RadioButton fx:id="rb10" layoutX="71.0" layoutY="122.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="10" toggleGroup="$myToggleGroup" />
-        <RadioButton fx:id="rb11" layoutX="71.0" layoutY="142.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="11" toggleGroup="$myToggleGroup" />
-        <RadioButton fx:id="rb13" layoutX="71.0" layoutY="182.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="13" toggleGroup="$myToggleGroup" />
-        <RadioButton fx:id="rb12" layoutX="71.0" layoutY="162.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="12" toggleGroup="$myToggleGroup" />
-        <RadioButton fx:id="rb14" layoutX="71.0" layoutY="202.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="14" toggleGroup="$myToggleGroup" />
-        <RadioButton fx:id="rb15" layoutX="71.0" layoutY="222.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="15" toggleGroup="$myToggleGroup" />
-        <RadioButton fx:id="rb16" layoutX="71.0" layoutY="242.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="16" toggleGroup="$myToggleGroup" />
-      <Label fx:id="Label_MotorSpeed" layoutX="150.0" layoutY="85.0" text="Motor speed  = 0 rpm" />
-      <Label fx:id="Label_PistonVel" layoutX="150.0" layoutY="105.0" text="Piston velocity = 0,00 mm/s " />
-      <Label fx:id="Label_JetVel" layoutX="150.0" layoutY="125.0" text="Jet velocity = 0 m/s " />
-      <Label fx:id="Label_ReNum" layoutX="150.0" layoutY="145.0" text="Re = 0" />
-      <Label layoutX="15.0" layoutY="77.0" text="Motor max. speed" />
-      <Line endX="-100.0" layoutX="230.0" layoutY="76.0" startX="-100.0" startY="220.0" />
-      <Line endX="-100.0" layoutX="410.0" layoutY="76.0" startX="-100.0" startY="220.0" />
-      <Line endX="310.0" layoutY="170.0" startX="130.0" />
-      <Slider fx:id="SliderStroke" blockIncrement="5.0" layoutX="150.0" layoutY="204.0" minorTickCount="4" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
-      <Label layoutX="151.0" layoutY="178.0" text="Define actuator stroke" />
-      <Label fx:id="LableStroke" layoutX="154.0" layoutY="251.0" text="Stroke length : 0,00 mm" />
-      <Button fx:id="MovePistonBtn" layoutX="324.0" layoutY="82.0" mnemonicParsing="false" onAction="#MovePistonAct" text="Start to move piston" />
-      <Button fx:id="RetrivePistonBtn" layoutX="324.0" layoutY="118.0" mnemonicParsing="false" onAction="#RetrivePistonAct" prefHeight="25.0" prefWidth="125.0" text="Retrive piston" />
-      <Circle fill="#1fff32" layoutX="337.0" layoutY="273.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+        <RadioButton fx:id="rb02" layoutX="21.0" layoutY="47.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="02" toggleGroup="$myToggleGroup" />
+        <RadioButton fx:id="rb03" layoutX="21.0" layoutY="67.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="03" toggleGroup="$myToggleGroup" />
+        <RadioButton fx:id="rb04" layoutX="21.0" layoutY="87.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="04" toggleGroup="$myToggleGroup" />
+        <RadioButton fx:id="rb05" layoutX="21.0" layoutY="107.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="05" toggleGroup="$myToggleGroup" />
+        <RadioButton fx:id="rb06" layoutX="21.0" layoutY="127.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="06" toggleGroup="$myToggleGroup" />
+        <RadioButton fx:id="rb07" layoutX="21.0" layoutY="147.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="07" toggleGroup="$myToggleGroup" />
+        <RadioButton fx:id="rb08" layoutX="21.0" layoutY="167.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="08" toggleGroup="$myToggleGroup" />
+        <RadioButton fx:id="rb09" layoutX="70.0" layoutY="27.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="09" toggleGroup="$myToggleGroup" />
+        <RadioButton fx:id="rb10" layoutX="70.0" layoutY="47.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="10" toggleGroup="$myToggleGroup" />
+        <RadioButton fx:id="rb11" layoutX="70.0" layoutY="67.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="11" toggleGroup="$myToggleGroup" />
+        <RadioButton fx:id="rb13" layoutX="70.0" layoutY="107.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="13" toggleGroup="$myToggleGroup" />
+        <RadioButton fx:id="rb12" layoutX="70.0" layoutY="87.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="12" toggleGroup="$myToggleGroup" />
+        <RadioButton fx:id="rb14" layoutX="70.0" layoutY="127.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="14" toggleGroup="$myToggleGroup" />
+        <RadioButton fx:id="rb15" layoutX="70.0" layoutY="147.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="15" toggleGroup="$myToggleGroup" />
+        <RadioButton fx:id="rb16" layoutX="70.0" layoutY="167.0" mnemonicParsing="false" onAction="#myToggleGroupAct" text="16" toggleGroup="$myToggleGroup" />
+      <Label fx:id="Label_MotorSpeed" layoutX="149.0" layoutY="10.0" text="Motor speed  = 0 rpm" />
+      <Label fx:id="Label_PistonVel" layoutX="149.0" layoutY="30.0" text="Piston velocity = 0,00 mm/s " />
+      <Label fx:id="Label_JetVel" layoutX="149.0" layoutY="50.0" text="Jet velocity = 0 m/s " />
+      <Label fx:id="Label_ReNum" layoutX="149.0" layoutY="70.0" text="Re = 0" />
+      <Label layoutX="14.0" layoutY="2.0" text="Motor max. speed" />
+      <Line endX="-100.0" layoutX="229.0" layoutY="1.0" startX="-100.0" startY="220.0" />
+      <Line endX="-100.0" layoutX="409.0" layoutY="1.0" startX="-100.0" startY="220.0" />
+      <Line endX="310.0" layoutX="-1.0" layoutY="95.0" startX="130.0" />
+      <Slider fx:id="SliderStroke" blockIncrement="5.0" layoutX="149.0" layoutY="129.0" minorTickCount="4" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+      <Label layoutX="150.0" layoutY="103.0" text="Define actuator stroke" />
+      <Label fx:id="LableStroke" layoutX="153.0" layoutY="176.0" text="Stroke length : 0 mm" />
+      <Button fx:id="MovePistonBtn" layoutX="323.0" layoutY="7.0" mnemonicParsing="false" text="Start to move piston" />
+      <Button fx:id="RetrivePistonBtn" layoutX="323.0" layoutY="43.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" text="Retrive piston" />
+      <Circle fill="#1fff32" layoutX="336.0" layoutY="198.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Button fx:id="stop" layoutX="394.0" layoutY="193.0" mnemonicParsing="false" onAction="#stop" prefHeight="30.0" prefWidth="90.0" text="Stop" textFill="RED" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="314.0" layoutY="127.0" text="Current position:" />
+                        <Label fx:id="crtpos" layoutX="405.0" layoutY="127.0" text="n/a" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="tab2" text="Rotation Speed Operation">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER" layoutX="240.0" layoutY="14.0" text="Choose servomotor rpm" AnchorPane.leftAnchor="185.0" AnchorPane.rightAnchor="185.0" />
+                        <Slider fx:id="rpmSlider" blockIncrement="1.0" layoutX="20.0" layoutY="31.0" majorTickUnit="10.0" max="70.0" minorTickCount="9" showTickLabels="true" showTickMarks="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                        <Label fx:id="Label_MotorSpeed1" layoutX="20.0" layoutY="80.0" text="Motor speed  = 00 rpm" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="80.0" />
+                        <Label fx:id="Label_ReNum1" layoutX="20.0" layoutY="133.0" text="Re = 0" />
+                        <Label fx:id="Label_JetVel1" layoutX="20.0" layoutY="115.0" text="Jet velocity = 0 m/s " AnchorPane.leftAnchor="20.0" />
+                        <Label fx:id="Label_PistonVel1" layoutX="20.0" layoutY="97.0" text="Piston velocity = 0,00 mm/s " AnchorPane.leftAnchor="20.0" />
+                        <Label fx:id="LableStroke1" layoutX="34.0" layoutY="209.0" text="Stroke length : 0 mm" />
+                        <Label layoutX="32.0" layoutY="152.0" text="Define actuator stroke" />
+                        <Slider fx:id="SliderStroke1" blockIncrement="5.0" layoutX="12.0" layoutY="173.0" minorTickCount="4" showTickLabels="true" showTickMarks="true" snapToTicks="true" AnchorPane.leftAnchor="20.0" />
+                        <Button fx:id="stop1" layoutX="403.0" layoutY="203.0" mnemonicParsing="false" onAction="#stop" prefHeight="30.0" prefWidth="90.0" text="Stop" textFill="RED" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="RetrivePistonBtn1" layoutX="197.0" layoutY="177.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" text="Retrive piston" AnchorPane.leftAnchor="200.0" />
+                        <Button fx:id="MovePistonBtn1" layoutX="197.0" layoutY="145.0" mnemonicParsing="false" text="Start to move piston" AnchorPane.leftAnchor="200.0" />
+                        <Label fx:id="crtpos1" layoutX="295.0" layoutY="80.0" text=" " />
+                        <Label layoutX="200.0" layoutY="80.0" text="Current position:" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="tab3" text="Adjustment">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="ccw_move" layoutX="23.0" layoutY="43.0" mnemonicParsing="false" text="CCW" AnchorPane.topAnchor="40.0" />
+                        <Button fx:id="cw_move" layoutX="99.0" layoutY="40.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="43.0" text="CW" />
+                        <Label fx:id="crtpos2" layoutX="289.0" layoutY="44.0" text=" " />
+                        <Label layoutX="195.0" layoutY="44.0" text="Current position:" />
+                        <Button fx:id="stop2" mnemonicParsing="false" onAction="#stop" prefHeight="30.0" prefWidth="90.0" text="Stop" textFill="RED" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="27.0" layoutY="6.0" text="Move piston for 1mm" />
+                        <Label layoutX="105.0" layoutY="23.0" text="Down" />
+                        <Label layoutX="37.0" layoutY="23.0" text="Up" />
+                        <Button fx:id="reset_pos" layoutX="39.0" layoutY="148.0" mnemonicParsing="false" text="Reset position" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
       
    
     </children>

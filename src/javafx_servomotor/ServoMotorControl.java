@@ -30,7 +30,8 @@ public class ServoMotorControl extends Application {
         stage.setScene(scene);
         
         //disabled maximaize and minimize except close use
-        stage.initStyle(StageStyle.UTILITY);
+        //stage.initStyle(StageStyle.UTILITY);
+        stage.resizableProperty().setValue(Boolean.FALSE);
         stage.show();
         
        //Event handler to close the program
