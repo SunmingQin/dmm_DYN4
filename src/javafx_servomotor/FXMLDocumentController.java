@@ -297,7 +297,7 @@ public class FXMLDocumentController implements Initializable {
         //Get MaxSpeed value from selected radio button
         int MaxSpd = Integer.parseInt(CallBtn.RadioSelected());
         //Calculate max motor rpm
-        double Max_motor_rpm=(MaxSpd+3)*(MaxSpd+3)*12.21*Gear_ratio/16;
+        double Max_motor_rpm= Math.round((MaxSpd+3)*(MaxSpd+3)*12.21*Gear_ratio/16);
         //Motor speed (revolutions per second)
         double Max_motor_rps = Max_motor_rpm/60;
         //piston speed (millimetres per second)
